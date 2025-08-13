@@ -40,8 +40,9 @@ h2 {
 }
 
 .time {
-    font-size: 48px;
+    font-size: 22px;
     font-weight: bold;
+    text-align: right;
 }
 
 .time small {
