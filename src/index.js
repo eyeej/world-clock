@@ -11,21 +11,24 @@ losAngelesDateElement.innerHTML = losAngelesTime.format("MMMM Do YYYY");
 losAngelesTimeElement.innerHTML = losAngelesTime.format("HH:mm:ss [<small>]A[</small>]");
     }
 
-    let sydneyElement = document.getElementById("sydney");
+    let parisElement = document.getElementById("paris");
 
-    if(sydneyElement) {
-        let sydneyDateElement = sydneyElement.querySelector(".date");
-        let sydneyTimeElement = sydneyElement.querySelector(".time");
+    if(parisElement) {
+        let parisDateElement = parisElement.querySelector(".date");
+        let parisTimeElement = parisElement.querySelector(".time");
 
-        let sydneyTime = moment().tz("Australia/Sydney");
+        let parisTime = moment().tz("Europe/Paris");
 
-sydneyDateElement.innerHTML = sydneyTime.format("MMMM Do YYYY");
-sydneyTimeElement.innerHTML = sydneyTime.format("HH:mm:ss [<small>]A[</small>]");
+parisDateElement.innerHTML = parisTime.format("MMMM Do YYYY");
+parisTimeElement.innerHTML = parisTime.format("HH:mm:ss [<small>]A[</small>]");
     }
 }
 
 function updateCity(event) {
     let cityTimeZone = event.target.value;
+    if (cityTimeZone === "current"); {
+        cityTimeZone = moment.tz.guess();
+    }
     
     let cityName = cityTimeZone.replace("_", " ").split("/")[1];
     let cityTime = moment().tz(cityTimeZone);
